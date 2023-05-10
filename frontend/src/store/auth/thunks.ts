@@ -4,7 +4,9 @@ import type { AxiosInstance } from 'axios';
 
 export const login = createAsyncThunk('auth/login', async (userData: any, thunkAPI) => {
   const axios = thunkAPI.extra as AxiosInstance;
-  await axios.post('/auth/login', userData);
+  const { data } = await axios.post('/auth/login', userData);
+
+  return data;
 });
 
 export const checkLogin = createAsyncThunk('auth/getMe', async (_, thunkAPI) => {

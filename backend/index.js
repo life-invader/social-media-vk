@@ -26,10 +26,6 @@ app.use('/profile', userRouter);
 app.use('/auth', authRouter);
 app.use('/posts', postRouter);
 
-app.get('/lok', (req, res) => {
-  res.redirect('/kama');
-});
-
 await mongoose.connect(parsed.DB_URL);
 const server = app.listen(parsed.PORT, () => {
   console.log(`Server is running on ${parsed.PORT} port`);

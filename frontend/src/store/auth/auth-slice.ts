@@ -35,7 +35,7 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
     });
 
-    // Получения пользователя
+    // Проверка логина (при старте приложения)
     builder.addCase(checkLogin.pending, (state) => {
       state.status = 'loading';
     });

@@ -43,7 +43,7 @@ const createPost = async (req, res) => {
     const doc = new PostModel({
       ...req.body,
       user: id,
-      image: req.file && `http://localhost:${process.env.PORT}/${req.file.filename}`,
+      image: req.file && `${process.env.SERVER_URL}/${req.file.filename}`,
     });
 
     const post = await doc.save();
