@@ -1,0 +1,26 @@
+.friend {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  background-color: #333336;
+  padding: 15px;
+  min-height: 80px;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  display: block;
+}
+
+.name {
+  font-size: 22px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

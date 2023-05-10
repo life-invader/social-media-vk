@@ -1,0 +1,32 @@
+.post {
+  padding: 15px;
+  background-color: #333336;
+  border-radius: 10px;
+}
+
+.postHeader {
+  /* display: flex;
+  gap: 10px;
+  align-items: center; */
+  margin-bottom: 10px;
+}
+
+.link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.postAuthorLogo {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.postImg {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}

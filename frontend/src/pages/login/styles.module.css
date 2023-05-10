@@ -1,0 +1,39 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tab {
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+.active {
+  color: #000;
+  background-color: #fff;
+}
+
+.formContainer {
+  width: 300px;
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+}

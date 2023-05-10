@@ -1,0 +1,15 @@
+.app {
+  margin: 0 auto;
+  padding: 15px 0;
+
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+}
+
+.appContainer {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  gap: 20px;
+}

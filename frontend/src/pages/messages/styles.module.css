@@ -1,0 +1,114 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.conversationPreview {
+  min-height: 70px;
+  background-color: #333336;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+
+  display: flex;
+  gap: 15px;
+}
+
+.partnerImg {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.partnerName {
+  font-weight: 500;
+}
+
+.innerBody {
+  display: flex;
+  gap: 15px;
+}
+
+.lastSenderImg {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.lastMessage {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #d3d3d3;
+}
+
+.conversationPanel {
+  align-self: flex-start;
+}
+
+.conversation {
+  border: 2px solid #333336;
+  border-radius: 10px;
+  padding: 15px;
+  height: 600px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.conversationField {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+
+  overflow-y: auto;
+}
+
+.message {
+  background-color: #333336;
+  padding: 10px;
+  border-radius: 5px;
+
+  display: flex;
+  gap: 15px;
+}
+
+.messageImg {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.messageName {
+  opacity: 0.6;
+}
+
+.textAreaWrapper {
+  padding-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.textArea {
+  flex-grow: 1;
+  min-height: 70px;
+  resize: none;
+  padding: 10px;
+  border-radius: 4px;
+  outline: none;
+  overflow-y: auto;
+}

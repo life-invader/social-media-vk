@@ -1,0 +1,25 @@
+.navigation {
+  width: 200px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #333336;
+
+  align-self: start;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+  display: block;
+}
+
+.link:hover {
+  opacity: 0.6;
+}
