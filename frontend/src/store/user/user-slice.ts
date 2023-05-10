@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { checkLogin, login } from '../auth/thunks';
+import { checkLogin, login, registerUser } from '../auth/thunks';
 import { createPost, getFeed, getPosts, getProfile } from './thunks';
 
 const initialState = {
@@ -33,6 +33,9 @@ export const userSlice = createSlice({
       state.user = payload;
     });
     builder.addCase(login.fulfilled, (state, { payload }) => {
+      state.user = payload;
+    });
+    builder.addCase(registerUser.fulfilled, (state, { payload }) => {
       state.user = payload;
     });
     builder.addCase(getProfile.fulfilled, (state, { payload }) => {

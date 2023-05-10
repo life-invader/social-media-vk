@@ -18,5 +18,7 @@ export const checkLogin = createAsyncThunk('auth/getMe', async (_, thunkAPI) => 
 
 export const registerUser = createAsyncThunk('auth/register', async (userData: any, thunkAPI) => {
   const axios = thunkAPI.extra as AxiosInstance;
-  await axios.post('/auth/register', userData);
+  const { data } = await axios.post('/auth/register', userData);
+
+  return data;
 });

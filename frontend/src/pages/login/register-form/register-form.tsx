@@ -33,7 +33,7 @@ function RegisterForm({ isActive }: any) {
       <h2>Зарегистрироваться</h2>
 
       <div className={styles.body}>
-        <p>
+        <div>
           <label className={styles.label} htmlFor="firstName">
             Имя
           </label>
@@ -44,9 +44,13 @@ function RegisterForm({ isActive }: any) {
             type="text"
             {...register('firstName')}
           />
-        </p>
 
-        <p>
+          {errors.firstName && (
+            <p className={styles.error}>{errors.firstName.message?.toString()}</p>
+          )}
+        </div>
+
+        <div>
           <label className={styles.label} htmlFor="secondName">
             Фамилия
           </label>
@@ -57,9 +61,13 @@ function RegisterForm({ isActive }: any) {
             type="text"
             {...register('secondName')}
           />
-        </p>
 
-        <p>
+          {errors.secondName && (
+            <p className={styles.error}>{errors.secondName.message?.toString()}</p>
+          )}
+        </div>
+
+        <div>
           <label className={styles.label} htmlFor="email">
             Email
           </label>
@@ -70,9 +78,11 @@ function RegisterForm({ isActive }: any) {
             type="text"
             {...register('email')}
           />
-        </p>
 
-        <p>
+          {errors.email && <p className={styles.error}>{errors.email.message?.toString()}</p>}
+        </div>
+
+        <div>
           <label className={styles.label} htmlFor="password">
             Пароль
           </label>
@@ -83,7 +93,9 @@ function RegisterForm({ isActive }: any) {
             type="password"
             {...register('password')}
           />
-        </p>
+
+          {errors.password && <p className={styles.error}>{errors.password.message?.toString()}</p>}
+        </div>
       </div>
 
       <button className={styles.button} type="submit">

@@ -22,7 +22,7 @@ const UserSchema = new Schema(
     },
     avatarUrl: {
       type: String,
-      default: `http://localhost:${process.env.PORT}/unya.jpg`,
+      default: `${process.env.SERVER_URL}${process.env.PORT}/unya.jpg`,
     },
     friends: [
       {
