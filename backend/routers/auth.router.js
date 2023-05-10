@@ -55,7 +55,7 @@ const login = async (req, res) => {
       { expiresIn: '1h' },
     );
 
-    res.cookie('token', token).json(user);
+    res.cookie('token', token, { sameSite: 'none', secure: true }).json(user);
   } catch (err) {
     res.status(500).json(err);
   }
