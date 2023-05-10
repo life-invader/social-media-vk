@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
 import { authRouter } from './routers/auth.router.js';
@@ -12,12 +11,6 @@ import { postRouter } from './routers/post.router.js';
 const { parsed } = dotenv.config();
 const app = express();
 
-app.use(
-  cors({
-    credentials: true,
-    origin: parsed.CLIENT_URL,
-  }),
-);
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('posts-images'));

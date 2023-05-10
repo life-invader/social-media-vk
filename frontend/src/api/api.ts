@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const axiosApi = axios.create({
-  baseURL: 'http://localhost:7000',
+  baseURL: 'https://social-media-vk-backend.onrender.com',
   withCredentials: true,
 })
