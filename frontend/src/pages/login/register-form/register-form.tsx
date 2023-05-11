@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/use-app-dispatch';
 import { LoginInitValues } from './validation';
 import { registerUser } from '../../../store/auth/thunks';
-import type { IRegisterFormProps, IRegisterFormValues } from './types';
+import type { IRegisterFormProps } from './types';
+import type { IRegisterData } from '../../../types/common';
 
 import styles from './styles.module.css';
 
@@ -13,12 +14,12 @@ function RegisterForm({ isActive }: IRegisterFormProps) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IRegisterFormValues>(LoginInitValues);
+  } = useForm<IRegisterData>(LoginInitValues);
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const formSubmitHandler: SubmitHandler<IRegisterFormValues> = async (data) => {
+  const formSubmitHandler: SubmitHandler<IRegisterData> = async (data) => {
     try {
       await dispatch(registerUser(data)).unwrap();
       state.from ? navigate(state.from) : navigate('/');

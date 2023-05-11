@@ -1,4 +1,4 @@
-export interface IFormProps {
-  image: File[],
+export interface IPostData {
   text: string,
+  image: File[],
 }

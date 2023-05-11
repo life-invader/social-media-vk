@@ -7,3 +7,15 @@ export interface IUserSlice {
   posts: IPost[],
   feed: IPost[],
 }
+
+export interface IAuthSlice {
+  status: AuthStatus,
+  isLoggedIn: boolean,
+}
+
+export enum AuthStatus {
+  Init = 'init',
+  Success = 'success',
+  Error = 'error',
+  Loading = 'loading',
+}

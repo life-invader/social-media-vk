@@ -3,7 +3,8 @@ import { LoginInitValues } from './validation';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { login } from '../../../store/auth/thunks';
 import { useAppDispatch } from '../../../hooks/use-app-dispatch';
-import type { ILoginFormProps, ILoginFormValues } from './types';
+import type { ILoginFormProps } from './types';
+import type { ILoginData } from '../../../types/common';
 
 import styles from './styles.module.css';
 
@@ -13,12 +14,12 @@ function LoginForm({ isActive }: ILoginFormProps) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ILoginFormValues>(LoginInitValues);
+  } = useForm<ILoginData>(LoginInitValues);
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const formSubmitHandler: SubmitHandler<ILoginFormValues> = async (data) => {
+  const formSubmitHandler: SubmitHandler<ILoginData> = async (data) => {
     try {
       await dispatch(login(data)).unwrap();
       state.from ? navigate(state.from) : navigate('/');

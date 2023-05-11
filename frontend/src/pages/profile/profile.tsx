@@ -7,7 +7,7 @@ import { useAppDispatch } from '../../hooks/use-app-dispatch';
 import { useParams } from 'react-router-dom';
 import { createPost, getPosts, getProfile } from '../../store/user/thunks';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import type { IFormProps } from './types';
+import type { IPostData } from './types';
 
 import styles from './styles.module.css';
 
@@ -19,7 +19,7 @@ function Profile() {
   const user = useAppSelector(selectViewingProfile);
   const fileInputRef = useRef<null | HTMLInputElement>(null);
   const [isInputActive, setIsInputActive] = useState(false);
-  const { register, handleSubmit, control, reset } = useForm<IFormProps>();
+  const { register, handleSubmit, control, reset } = useForm<IPostData>();
   const { ref, ...rest } = register('image');
 
   const isMyProfile = id === me?._id;
@@ -35,7 +35,7 @@ function Profile() {
   const onFocusHandler = () => setIsInputActive(true);
   const onBlurHandler = () => setIsInputActive(false);
 
-  const newPostSubmitHandler: SubmitHandler<IFormProps> = async (data) => {
+  const newPostSubmitHandler: SubmitHandler<IPostData> = async (data) => {
     const formData = new FormData();
     formData.set('text', data.text);
     formData.append('image', data.image[0]);
