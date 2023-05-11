@@ -7,6 +7,10 @@ import styles from './styles.module.css';
 function Navigation() {
   const user = useAppSelector(selectUser);
 
+  if (!user) {
+    return null;
+  }
+
   return (
     <div className={styles.navigation}>
       <ul className={styles.list}>

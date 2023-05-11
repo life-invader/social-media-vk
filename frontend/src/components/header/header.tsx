@@ -21,31 +21,33 @@ function Header() {
           iN Touch
         </Link>
 
-        <div className={styles.user} onClick={menuOpenHandler}>
-          <img
-            className={styles.userImg}
-            src={user.avatar || fallbackImage}
-            alt="Иконка профиля"
-            width="28"
-            height="28"
-          />
+        {user && (
+          <div className={styles.user} onClick={menuOpenHandler}>
+            <img
+              className={styles.userImg}
+              src={user.avatar || fallbackImage}
+              alt="Иконка профиля"
+              width="28"
+              height="28"
+            />
 
-          <div className={styles.menu}>
-            <ul className={`${styles.list} ${isOpen && styles.menuOpen}`}>
-              <li>
-                <Link className={styles.link} to={`/profile/${user._id}`}>
-                  Моя страница
-                </Link>
-              </li>
+            <div className={styles.menu}>
+              <ul className={`${styles.list} ${isOpen && styles.menuOpen}`}>
+                <li>
+                  <Link className={styles.link} to={`/profile/${user._id}`}>
+                    Моя страница
+                  </Link>
+                </li>
 
-              <li>
-                <Link className={styles.link} to={`/logout`}>
-                  Выйти
-                </Link>
-              </li>
-            </ul>
+                <li>
+                  <Link className={styles.link} to={`/logout`}>
+                    Выйти
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

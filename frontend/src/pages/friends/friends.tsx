@@ -10,12 +10,12 @@ function Friends() {
   return (
     <div>
       <ul className={styles.list}>
-        {friends.map((friend: any) => (
+        {friends.map((friend) => (
           <li key={friend._id}>
             <div className={styles.friend}>
               <img
                 className={styles.img}
-                src={friend.avatarUrl || fallbackImage}
+                src={friend.avatar || fallbackImage}
                 alt="Иконка профиля"
                 width="80"
                 height="80"

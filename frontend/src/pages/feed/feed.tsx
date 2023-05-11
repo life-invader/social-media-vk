@@ -17,7 +17,7 @@ function Feed() {
   return (
     <div>
       <ul className={styles.feed}>
-        {posts.map((post: any) => (
+        {posts.map((post) => (
           <Post key={post._id} {...post} />
         ))}
       </ul>

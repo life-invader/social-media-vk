@@ -1,8 +1,9 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/use-app-selector';
 import { selectAuth } from '../../store/auth/selectors';
+import type { IPrivateRouteProps } from './types';
 
-function PrivateRoute({ children }: any) {
+function PrivateRoute({ children }: IPrivateRouteProps) {
   const { isLoggedIn } = useAppSelector(selectAuth);
   const { pathname } = useLocation();
 

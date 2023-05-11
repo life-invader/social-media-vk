@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { FormEventHandler, useEffect, useState } from 'react';
 import styles from './styles.module.css';
 
 function Messages() {
@@ -21,7 +21,7 @@ function Messages() {
     setSelectedUser(1);
   };
 
-  const sendMessage = async (evt: any) => {
+  const sendMessage: FormEventHandler<HTMLFormElement> = async (evt) => {
     evt.preventDefault();
 
     const data = JSON.stringify({

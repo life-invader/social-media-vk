@@ -1,23 +1,24 @@
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/use-app-dispatch';
 import { LoginInitValues } from './validation';
 import { registerUser } from '../../../store/auth/thunks';
+import type { IRegisterFormProps, IRegisterFormValues } from './types';
 
 import styles from './styles.module.css';
 
-function RegisterForm({ isActive }: any) {
+function RegisterForm({ isActive }: IRegisterFormProps) {
   const { state } = useLocation();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm(LoginInitValues);
+  } = useForm<IRegisterFormValues>(LoginInitValues);
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const formSubmitHandler = async (data: any) => {
+  const formSubmitHandler: SubmitHandler<IRegisterFormValues> = async (data) => {
     try {
       await dispatch(registerUser(data)).unwrap();
       state.from ? navigate(state.from) : navigate('/');

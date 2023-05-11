@@ -1,25 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { checkLogin, login, registerUser } from '../auth/thunks';
 import { createPost, getFeed, getPosts, getProfile } from './thunks';
+import type { IUserSlice } from '../types';
 
-const initialState = {
-  user: {
-    _id: '',
-    firstName: '',
-    secondName: '',
-    email: '',
-    avatar: '',
-    friends: [],
-  },
-  viewingProfile: {
-    _id: '',
-    firstName: '',
-    secondName: '',
-    email: '',
-    avatar: '',
-    friends: [],
-  },
-  posts: [] as any[],
+const initialState: IUserSlice = {
+  user: null,
+  viewingProfile: null,
+  posts: [],
   feed: [],
 };
 

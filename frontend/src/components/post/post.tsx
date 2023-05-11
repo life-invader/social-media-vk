@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { fallbackImage } from '../../constants/fallback-image';
+import type { IPostProps } from './types';
+
 import styles from './styles.module.css';
 
-function Post({ _id, text, image, likes, user }: any) {
+function Post({ _id, text, image, likes, user }: IPostProps) {
   return (
     <div className={styles.post}>
       <header className={styles.postHeader}>
