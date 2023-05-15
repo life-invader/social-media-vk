@@ -1,25 +1,11 @@
-import { FormEventHandler, useEffect, useState } from 'react';
+import { FormEventHandler, useState } from 'react';
 import styles from './styles.module.css';
 
 function Messages() {
   const [ws, setWs] = useState<WebSocket | null>(null);
   const [onlineUsers, setOnlineUsers] = useState<any[]>([]);
   const [selectedUser, setSelectedUser] = useState<number | null>(null);
-  const [message, setMessage] = useState(null);
-
-  const showPeopleOnline = (onlineUsers: any[]) => {
-    const people: any = {};
-    onlineUsers.forEach(({ id, name }) => {
-      people[id] = name;
-    });
-
-    console.log(people);
-    setOnlineUsers([people]);
-  };
-
-  const selectContact = () => {
-    setSelectedUser(1);
-  };
+  const [message, setMessage] = useState('');
 
   const sendMessage: FormEventHandler<HTMLFormElement> = async (evt) => {
     evt.preventDefault();
@@ -28,21 +14,9 @@ function Messages() {
       recipientId: selectedUser,
       text: 'message',
     });
+
     ws?.send(data);
   };
-
-  useEffect(() => {
-    const ws = new WebSocket('ws://localhost:7000/');
-    setWs(ws);
-
-    ws.addEventListener('message', (evt) => {
-      const response = JSON.parse(evt.data);
-
-      if (response.online) {
-        showPeopleOnline(response.online);
-      }
-    });
-  }, []);
 
   return (
     <>
@@ -107,7 +81,7 @@ function Messages() {
         <div>
           <ul className={styles.list}>
             <li>
-              <div className={styles.conversationPreview} onClick={selectContact}>
+              <div className={styles.conversationPreview}>
                 <img
                   className={styles.partnerImg}
                   src="Уня.jpg"
@@ -139,7 +113,7 @@ function Messages() {
             </li>
 
             <li>
-              <div className={styles.conversationPreview} onClick={selectContact}>
+              <div className={styles.conversationPreview}>
                 <img
                   className={styles.partnerImg}
                   src="Уня.jpg"
@@ -173,7 +147,7 @@ function Messages() {
         </div>
       )}
 
-      <div className={styles.conversationPanel}>panel</div>
+      <div className={styles.friendsPanel}>Тут будет список друзей</div>
     </>
   );
 }

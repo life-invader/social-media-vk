@@ -13,6 +13,8 @@
 
   display: flex;
   gap: 15px;
+
+  cursor: not-allowed;
 }
 
 .partnerImg {
@@ -111,4 +113,11 @@
   border-radius: 4px;
   outline: none;
   overflow-y: auto;
+}
+
+.friendsPanel {
+  width: 200px;
+  padding: 15px;
+  background-color: #333336;
+  border-radius: 10px;
 }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { fallbackImage } from '../../constants/fallback-image';
 import { useAppSelector } from '../../hooks/use-app-selector';
 import { selectFriends } from '../../store/user/selectors';
@@ -12,7 +13,7 @@ function Friends() {
       <ul className={styles.list}>
         {friends.map((friend) => (
           <li key={friend._id}>
-            <div className={styles.friend}>
+            <Link to={`/profile/${friend._id}`} className={styles.friend}>
               <img
                 className={styles.img}
                 src={friend.avatar || fallbackImage}
@@ -21,7 +22,7 @@ function Friends() {
                 height="80"
               />
               <p className={styles.name}>{`${friend.firstName} ${friend.secondName}`}</p>
-            </div>
+            </Link>
           </li>
         ))}
       </ul>

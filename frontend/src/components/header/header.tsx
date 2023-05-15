@@ -31,8 +31,8 @@ function Header() {
               height="28"
             />
 
-            <div className={styles.menu}>
-              <ul className={`${styles.list} ${isOpen && styles.menuOpen}`}>
+            <div className={`${styles.menu} ${isOpen && styles.menuOpen}`}>
+              <ul className={styles.list}>
                 <li>
                   <Link className={styles.link} to={`/profile/${user._id}`}>
                     Моя страница
@@ -40,7 +40,15 @@ function Header() {
                 </li>
 
                 <li>
-                  <Link className={styles.link} to={`/logout`}>
+                  <Link
+                    className={`${styles.link} ${styles.inactive}`}
+                    to={`/profile/${user._id}/edit`}>
+                    Редактировать
+                  </Link>
+                </li>
+
+                <li>
+                  <Link className={`${styles.link} ${styles.inactive}`} to={`/logout`}>
                     Выйти
                   </Link>
                 </li>
